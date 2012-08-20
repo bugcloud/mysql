@@ -24,6 +24,9 @@
 port            = <%= node['mysql']['port'] %>
 socket          = <%= node['mysql']['socket'] %>
 
+# set default-character-set
+default-character-set = utf8
+
 # Here is entries for some specific programs
 # The following values assume you have at least 32M ram
 
@@ -168,6 +171,11 @@ skip-federated
 # ssl-ca=/etc/mysql/cacert.pem
 # ssl-cert=/etc/mysql/server-cert.pem
 # ssl-key=/etc/mysql/server-key.pem
+
+# I need only utf8 databases.
+character-set-server = utf8
+skip-character-set-client-handshake
+
 
 [mysqldump]
 quick
